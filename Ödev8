@@ -61,3 +61,50 @@ insert into employee (id, name, email, birthday) values (49, 'Friedrick', 'fsong
 insert into employee (id, name, email, birthday) values (50, 'Lara', 'lhalfhyde1d@networkadvertising.org', '1999-02-20');
 
 3.Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+
+UPDATE employee
+SET birthday = '1998-10-27'
+WHERE birthday IS NULL
+RETURNING *;
+
+UPDATE employee
+SET name = 'Yonca'
+WHERE name LIKE 'B%'
+RETURNING *;
+
+UPDATE employee
+SET name = 'Yeprem'
+WHERE name LIKE '%h'
+RETURNING *;
+
+UPDATE employee
+SET birthday = '1999-02-25'
+WHERE birthday = '1999-02-20'
+RETURNING *;
+
+UPDATE employee
+SET email = 'example@mail.com'
+WHERE email LIKE '%youku.com'
+RETURNING *;
+
+5. Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+
+DELETE FROM employee
+WHERE name = 'Dori'
+RETURNING *;
+--
+DELETE FROM employee
+WHERE email = 'ddacosta12@home.pl'
+RETURNING *;
+--
+DELETE FROM employee
+WHERE name LIKE '%z'
+RETURNING *;
+--
+DELETE FROM employee
+WHERE name LIKE 'C%'
+RETURNING *;
+--
+DELETE FROM employee
+WHERE birthday = '1992-08-04'
+RETURNING *;
