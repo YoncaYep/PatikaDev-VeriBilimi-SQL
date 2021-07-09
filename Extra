@@ -1,0 +1,13 @@
+1.Film tablosundan 'K' karakteri ile başlayan en uzun ve replacenet_cost u en düşük 4 filmi sıralayınız.
+
+SELECT * FROM film
+WHERE title LIKE 'K%' 
+ORDER BY length DESC , replacement_cost ASC
+LIMIT 4;
+
+2. Film tablosunda içerisinden en fazla sayıda film bulunduran rating kategorisi hangisidir?
+
+SELECT rating, COUNT(rating) FROM film
+GROUP BY rating
+ORDER BY COUNT(rating) DESC
+LIMIT 1;
